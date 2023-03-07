@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Source.Contexts;
+
 namespace Source
 {
     public class Program
@@ -12,6 +15,8 @@ namespace Source
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+           
+            builder.Services.AddDbContext<ContactsAPIDbContext>(options=>options.UseInMemoryDatabase("ContactsDb"));
 
             var app = builder.Build();
 
